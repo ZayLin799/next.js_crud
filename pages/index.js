@@ -10,7 +10,7 @@ function Home() {
   }, []);
 
   const fetchApi = async () => {
-    let res = await axios.get("http://localhost:3005/api/article");
+    let res = await axios.get("http://localhost:3000/api/article");
     setArticle(res.data);
   };
 

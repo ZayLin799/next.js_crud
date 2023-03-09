@@ -9,6 +9,7 @@ export default async function handler(req, res) {
         const article = await new Promise((resolve, reject) => {
           db.query(`SELECT * FROM articles`, (error, results) => {
             if (error) {
+              console.log("eerror", error);
               reject(error);
             } else {
               resolve(results);
@@ -52,6 +53,5 @@ export default async function handler(req, res) {
     default:
       res.setHeader("Allow", ["GET", "POST", "PUT", "DELETE"]);
       res.status(405).json({ message: `Method ${method} not allowed` });
-      break;
   }
 }
